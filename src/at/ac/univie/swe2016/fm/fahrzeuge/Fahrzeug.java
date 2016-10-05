@@ -13,13 +13,13 @@ abstract class Fahrzeug {
     double Grundpreis;
     int Id;
 
-    private Fahrzeug(String marke, String modell, int baujahr, int grundpreis, int id) throws IllegalArgumentException{
+    public Fahrzeug(String marke, String modell, int baujahr, double grundpreis, int id) throws IllegalArgumentException{
         Marke = marke;
         Modell = modell;
         if(baujahr <= Year.now().getValue()) {
             Baujahr = baujahr;
         } else {
-            throw IllegalArgumentException("Baujahr ungültig!");
+            throw new IllegalArgumentException("Baujahr ungültig!");
         }
         Grundpreis = grundpreis;
         Id = id;
