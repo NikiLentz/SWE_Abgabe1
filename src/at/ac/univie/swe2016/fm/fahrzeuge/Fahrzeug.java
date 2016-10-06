@@ -30,9 +30,10 @@ abstract class Fahrzeug {
     }
 
     public double getPreis(){
-        return Grundpreis - getRabatt();
+        return Grundpreis - this.getRabatt();
     }
 
     public abstract double getRabatt();
+
 
 }
