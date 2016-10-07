@@ -6,7 +6,7 @@ import java.time.Year;
  * Created by Nikolaus Lentz 1326773 on 05.10.16.
  */
 
-abstract class Fahrzeug {
+public abstract class Fahrzeug {
     String Marke;
     String Modell;
     int Baujahr;
