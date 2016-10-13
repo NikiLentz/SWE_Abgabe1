@@ -1,3 +1,4 @@
+package swe2016.fm.fahrzeuge.dao;
 /**
  * Created by Nikolaus Lentz 1326773 on 07.10.16.
  */
