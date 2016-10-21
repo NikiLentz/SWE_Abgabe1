@@ -1,12 +1,13 @@
 package at.ac.univie.swe2016.fm.fahrzeuge;
 
+import java.io.Serializable;
 import java.time.Year;
 
 /**
  * Created by Nikolaus Lentz 1326773 on 05.10.16.
  */
 
-public abstract class Fahrzeug {
+public abstract class Fahrzeug implements Serializable{
     String Marke;
     String Modell;
     int Baujahr;
@@ -34,6 +35,10 @@ public abstract class Fahrzeug {
     }
 
     public abstract double getRabatt();
+
+    public int getId(){
+        return this.Id;
+    }
 
 
 }
