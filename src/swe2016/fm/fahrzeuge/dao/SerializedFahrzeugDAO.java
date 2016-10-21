@@ -20,7 +20,7 @@ public class SerializedFahrzeugDAO implements FahrzeugDAOInterface {
     public SerializedFahrzeugDAO(String pfad){
         Pfad = pfad;
         Boolean FileExists = true;
-        File data = new File(Pfad);
+            File data = new File(Pfad);
         if(!data.exists() && !data.isDirectory()) {
             data.getParentFile().mkdirs();
             FileExists = false;
@@ -36,7 +36,7 @@ public class SerializedFahrzeugDAO implements FahrzeugDAOInterface {
                 fis = new FileInputStream(Pfad);
                 oi= new ObjectInputStream(fis);
                 FahrzeugList = (ArrayList<Fahrzeug>) oi.readObject();
-                System.out.println("SIZE:" + FahrzeugList.size());
+                //System.out.println("SIZE:" + FahrzeugList.size());
                 oi.close();
                 fis.close();
             } catch(IOException e){
@@ -44,13 +44,14 @@ public class SerializedFahrzeugDAO implements FahrzeugDAOInterface {
             } catch(ClassNotFoundException e){
                 e.printStackTrace();
             }
-        } else {
-
         }
     }
     @Override
     public ArrayList<Fahrzeug> getFahrzeugList() {
         this.writeToFile();
+        if(FahrzeugList.isEmpty()){
+            return null;
+        }
         return FahrzeugList;
     }
 
@@ -63,7 +64,7 @@ public class SerializedFahrzeugDAO implements FahrzeugDAOInterface {
                 return fahrzeug;
             }
         }
-        return null;//Fahrzeug mit dieser ID existiert nicht im File
+        return null;
     }
 
     @Override
