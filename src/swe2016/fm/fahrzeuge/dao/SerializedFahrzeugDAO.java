@@ -5,7 +5,8 @@ import java.io.*;
 import java.util.ArrayList;
 
 /**
- * Created by Nikolaus Lentz 1326773 on 07.10.16.
+ * <h2>SerializedFahrzeugDAO</h2>
+ * implementiert FahrzeugDAOInterface und benutzt die Java Standardserialisierung
  */
 public class SerializedFahrzeugDAO implements FahrzeugDAOInterface {
 
@@ -16,7 +17,11 @@ public class SerializedFahrzeugDAO implements FahrzeugDAOInterface {
     ObjectInputStream oi = null;
     ArrayList<Fahrzeug> FahrzeugList = new ArrayList<>();
 
-
+    /**
+     * Initialisiert die Serialisierung und erstellt die Datei falls sie nicht vorhanden ist.
+     * Befüllt außerdem FahrzeugList mit allen Daten die bereits in der Datei vorhanden sind.
+     * @param pfad Dies ist der Pfad der Datei.
+     */
     public SerializedFahrzeugDAO(String pfad){
         Pfad = pfad;
         Boolean FileExists = true;
@@ -46,6 +51,7 @@ public class SerializedFahrzeugDAO implements FahrzeugDAOInterface {
             }
         }
     }
+
     @Override
     public ArrayList<Fahrzeug> getFahrzeugList() {
         this.writeToFile();
@@ -79,6 +85,10 @@ public class SerializedFahrzeugDAO implements FahrzeugDAOInterface {
         this.writeToFile();
     }
 
+    /**
+     * Speichert FahrzeugList mithilfe der Serialisierung in die Datei.
+     * Wird in jeder Methode aufgerufen um Fehler und Datenverlust zu vermeiden.
+     */
     private void writeToFile(){
         try {
             fos = new FileOutputStream(Pfad,false);

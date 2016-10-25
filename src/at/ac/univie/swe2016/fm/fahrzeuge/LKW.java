@@ -1,11 +1,24 @@
 package at.ac.univie.swe2016.fm.fahrzeuge;
 
 /**
- * Created by Nikolaus Lentz 1326773 on 05.10.16.
+ * <h1>Klasse LKW</h1>
+ * Erstellt Fahrzeugobjekte vom Typ LKW und enthält Methoden um ihre Werte zu erhalten.
+ *
+ * @author Nikolaus Lentz
+ * @version 1.0
  */
 public class LKW extends Fahrzeug{
+    /**
+     * Konstruktor, initialisiert alle Variablen
+     * @param id eindeutige ID zur Identifizierung
+     * @param marke Die Marke des Fahrzeugs
+     * @param modell Das Modell des Fahrzeugs
+     * @param baujahr   Das Baujahr
+     * @param grundpreis Der Preis ohne jeglichen Rabatt
+     * @throws IllegalArgumentException Wird geworfen wenn das Baujahr nach dem heurigen Jahr kommt
+     */
     public LKW(int id, String marke, String modell, int baujahr, double grundpreis) throws IllegalArgumentException {
-        super(marke, modell, baujahr, grundpreis, id);
+        super(id, marke, modell, baujahr, grundpreis);
     }
 
     @Override
